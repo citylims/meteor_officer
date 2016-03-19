@@ -1,0 +1,265 @@
+$main-color: #29FE14;
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+*  {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%; // required so gradient background will stretch to fill entire viewport
+}
+
+//for three.js background
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+
+body {
+  background-color: transparent;
+  /* background: linear-gradient(135deg,#593188,#53346D); */
+  color: $main-color;
+  font: 400 20px/1.625 "Source Sans Pro", sans-serif;
+}
+
+.window {
+  background: black;
+  border-radius: 0.5em;
+  box-shadow: 0 0.75em 3em #311a50;
+
+  margin: 1em auto 10px;
+  max-width: 55em;
+  min-height: 27em;
+  padding-right: 4px;
+
+  overflow: hidden; // to clip interior content to border-radius
+  position: relative; // to position .command-area absolutely
+
+  // fade text at top of window when scrolled down
+  &::before {
+    content: ''; // required for ::before
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 2em;
+    z-index: 100;
+  }
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.result {
+  margin: 0;
+  padding: 1em 2em 5em;
+  height: 25em;
+  overflow-y: auto; //scroll anything over height
+
+  .user-print {
+    color:#c7c7d1;
+  }
+
+  li {
+    display: block;
+    // Fade in and up animation
+    animation: appear 0.5s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(150%);
+
+    @at-root { // Compile code out to top level
+      .feed-image {
+        margin: 10px 0;
+        max-width: 250px;
+      }
+
+      .path {
+        color: $main-color;
+        margin-right: 3px;
+      }
+
+      &.loading {
+        animation: none;
+        font-style: italic;
+        transform: none;
+        opacity: 0.5;
+      }
+
+      @keyframes appear {
+        100% {
+          transform: none;
+          opacity: 1;
+        }
+
+      }
+
+    }
+
+    // Styling for command response
+    &:nth-child(even) {
+      animation-delay: 0.75s;
+      color: HSL(115, 99%, 54%);
+    }
+  }
+
+  // Styled scrollbar
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #36aa95;
+    border-radius: 10px;
+  }
+
+  .err {
+    color: $main-color;
+    font-family: inherit;
+    font-size: 20px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50em;
+    animation: type 4s steps(60, end);
+    &:nth-child(2){
+      animation: type2 8s steps(60, end);
+    }
+  }
+
+  @keyframes type {
+    from { width: 0; }
+  }
+
+  @keyframes type2 {
+    0% { width: 0; }
+    50% { width: 0; }
+    100% { width: 100; }
+  }
+
+  ::selection{
+    color: black;
+    background: $main-color;
+  }
+
+}//result
+
+.command-area {
+  background: #201840;
+  color: $main-color;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+label {
+  line-height: 2em; // vertically center
+  float: left;
+  width: 4%;
+}
+
+input {
+  background: black;
+  border: 0;
+  float: left;
+  font: inherit; // use parents' font
+  transition: 0.5s;
+  outline: 1px solid #231f50;
+  padding: 0.25em 0.5em;
+  width: 96%;
+
+  &:focus {
+    outline: 1px solid hsl(160,90%,60%);
+  }
+
+  // Style placeholder text
+  &::-webkit-input-placeholder {
+    color: inherit;
+    font-style: italic;
+  }
+
+  &::-moz-placeholder {
+    color: inherit;
+    font-style: italic;
+  }
+
+  // Placeholder syntax
+  &::placeholder {
+    color: inherit;
+    font-style: italic;
+  }
+}
+
+.playground {
+  max-width: 55em;
+  margin: 0 auto;
+}
+
+.img-preview {
+  img {
+    max-width: 300px;
+  }
+}
+
+.command-manual {
+  position: absolute;
+  width: 100%;
+  background: #1D1F21;
+  bottom: 85px;
+
+  p {
+    color: #c6cfd9;
+    display: inline;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 5px;
+  }
+}
+
+#showWindowBtn {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+}
+
+.datepicker-wrap {
+  position: absolute;
+  top: 149px;
+}
+
+.date-textarea {
+  /* min-height: 250px */;
+}

@@ -1,0 +1,12 @@
+<template name="commandArea">
+
+  {{#if displayManual}}
+    {{> commandManual}}
+  {{/if}}
+
+  <div class="command-area">
+    <label for="command-input">$</label>
+    <input type="text" id="commandInput" class="command" placeholder="type command here ..." style="color:white;"/>
+  </div>
+
+</template>

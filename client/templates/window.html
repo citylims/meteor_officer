@@ -1,0 +1,24 @@
+<template name="window">
+
+  <div class="window">
+
+    <div class="feed">
+
+      <ul class="result" id="feedScroll">
+        <div>
+          <li class="ready">Ready…</li>
+        </div>
+        {{#each actions}}
+          {{> feedItem}}
+        {{/each}}
+      </ul>
+
+      {{> commandArea}}
+
+    </div>
+
+  </div>
+
+  {{> playground}}
+
+</template>

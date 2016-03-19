@@ -1,0 +1,18 @@
+<template name="playground">
+  <div class="playground">
+
+    {{#if datePreview}}
+      {{> datepicker}}
+    {{/if}}
+
+    {{#if imgPreview}}
+      <div class="img-preview">
+        <img src="{{selectedImg}}" alt="preview-image">
+      </div>
+    {{/if}}
+
+    <!-- data-bind -->
+    <span>{{cmd}}</span>
+
+  </div>
+</template>

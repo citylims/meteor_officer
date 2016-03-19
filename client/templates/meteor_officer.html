@@ -1,0 +1,11 @@
+<template name="meteorOfficer">
+  {{# if currentUser}}
+    {{> window}}
+  {{else}}
+    {{#if loggingIn}}
+      LOADING . . .
+    {{else}}
+      {{> loginButtons}}
+    {{/if}}
+  {{/if}}
+</template>

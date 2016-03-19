@@ -1,0 +1,45 @@
+<template name="feedItem">
+
+  {{#if date}}
+    <div>
+      <li>
+        <span class="date" style="color:red">Date: {{date}}</span>
+      </li>
+    </div>
+  {{/if}}
+
+  {{#if text}}
+    <div>
+      <li>
+        <span class="path">$</span> {{text}}
+      </li>
+    </div>
+  {{/if}}
+
+  {{#if appResponse}}
+    <div>
+      <li>
+        <span class="response">~</span> {{appResponse}}
+      </li>
+    </div>
+  {{/if}}
+
+  {{#if img}}
+    <div>
+      <li>
+        <img class="feed-image" src="{{img}}">
+      </li>
+    </div>
+  {{/if}}
+
+  {{#if youtubeSrc}}
+    <div>
+      <li>
+        <iframe width="320" height="215"
+          src="{{youtubeSrc}}">
+        </iframe>
+      </li>
+    </div>
+  {{/if}}
+
+</template>
